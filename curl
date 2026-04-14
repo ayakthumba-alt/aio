@@ -1,0 +1,5 @@
+First, get the exact size of the default page (to filter it out):
+  
+curl -s http://172.25.120.240 | wc -c
+
+--------------------------------------------------------------------------
