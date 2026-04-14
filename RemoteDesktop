@@ -1,0 +1,32 @@
+xfreerdp /u:username /p:password /v:172.25.120.125 /cert:ignore +clipboard /dynamic-resolution /drive:share,/tmp /drive:share,/tmp: 
+
+(This maps your local /tmp folder to the remote Windows machine as a network drive, making it easy to move tools onto the target.
+ 
+ Troubleshooting Tip: If you see an error like SSL_read: I/O error, it almost always means you need to add /sec:rdp or /sec:tls)
+
+-----------------------------------------------------------------------
+xfreerdp /u:username /p:password /v:172.25.120.125
+
+xfreerdp /u:username /p:password /v:172.25.120.125 /sec:rdp /cert:ignore    (If the target is older or NLA is misconfigured, force the connection to use basic RDP security instead of NLA.)
+
+xfreerdp /u:username /p:password /v:172.25.120.125 /sec:nla /cert:ignore    (Sometimes the client fails to trigger NLA even when the server requires it. Force it on:)
+
+
+
+
+/cert:ignore – Skip certificate warnings
++clipboard – Enable copy-pasting between host and target
+/dynamic-resolution – Resize the window dynamically
+
+-------------------------------------------------------------
+
+rdesktop -u username -p password 172.25.120.125
+
+-d domain – Specify a Windows domain
+
+--------------------------------------------------------
+
+remmina -c rdp://username@172.25.120.125
+
+With Domain:
+            remmina -c rdp://DOMAIN\\username@172.25.120.125
